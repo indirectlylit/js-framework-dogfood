@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import compare from './components/compare';
+var compare = require('./components/compare');
 
-export default {
+module.exports = {
   components: {
-    compare,
+    compare: compare,
   },
 };
 </script>
