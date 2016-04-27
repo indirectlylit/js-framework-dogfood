@@ -41,4 +41,8 @@
     text-decoration: none;
   }
 
+  h3 {
+    text-align: center;
+  }
+
 </style>
