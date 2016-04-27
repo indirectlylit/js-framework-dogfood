@@ -4,15 +4,19 @@
   </div>
 </template>
 
+
 <script>
-module.exports = {
-  data: function() {
-    return {
-      msg: 'Hello World!',
-    };
-  },
-};
+
+  module.exports = {
+    data: function() {
+      return {
+        msg: 'Hello World!',
+      };
+    },
+  };
+
 </script>
+
 
 <style scoped>
 </style>

@@ -5,35 +5,40 @@
   </div>
 </template>
 
-<script>
-var compare = require('./components/compare');
 
-module.exports = {
-  components: {
-    compare: compare,
-  },
-};
+<script>
+
+  var compare = require('./components/compare');
+
+  module.exports = {
+    components: {
+      compare: compare,
+    },
+  };
+
 </script>
 
+
 <style>
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
 
-body {
-  height: 100%;
-  color: #2c3e50;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-}
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 
-a {
-  color: #42b983;
-  text-decoration: none;
-}
+  body {
+    height: 100%;
+    color: #2c3e50;
+    font-family: Source Sans Pro, Helvetica, sans-serif;
+  }
+
+  a {
+    color: #42b983;
+    text-decoration: none;
+  }
 
 </style>
