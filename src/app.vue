@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h3>Comparison of front-end JS frameworks</h3>
+    <p>An unscientific overview for Kolibri</p>
     <compare></compare>
   </div>
 </template>
@@ -8,11 +9,9 @@
 
 <script>
 
-  var compare = require('./components/compare');
-
   module.exports = {
     components: {
-      compare: compare,
+      compare: require('./components/compare'),
     },
   };
 
@@ -41,7 +40,7 @@
     text-decoration: none;
   }
 
-  h3 {
+  h3, p {
     text-align: center;
   }
 

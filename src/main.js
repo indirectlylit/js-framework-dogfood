@@ -1,7 +1,9 @@
 var Vue = require('vue');
-var app = require('./app');
 
+// turn `body` into the root vue instance and register the `app` component
 new Vue({
   el: 'body',
-  components: { app : app },
-})
+  components: {
+    app: require('./app')
+  }
+});

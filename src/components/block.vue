@@ -1,0 +1,35 @@
+<template>
+  <div class="block" v-bind:style="scaledColor"></div>
+</template>
+
+
+<script>
+
+  var d3_scale = require('d3-scale');
+
+  var color = d3_scale.scaleLinear()
+    .domain([0, 5])
+    .range(["brown", "steelblue"]);
+
+  module.exports = {
+    props: ['metric'],
+    computed: {
+      scaledColor: function() {
+        return {
+          backgroundColor: color(this.metric.score)
+        };
+      }
+    },
+  };
+
+</script>
+
+
+<style scoped>
+
+  .block {
+    width: 100px;
+    height: 100px;
+  }
+
+</style>
