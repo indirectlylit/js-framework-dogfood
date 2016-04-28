@@ -11,6 +11,7 @@
           class="metrics"
           v-on:click="sortRows(metric.id)"
           v-for="metric in sortedMetrics"
+          :title="metric.notes"
           :class="{'disabled': rowsort === metric.id}">
           {{metric.display}}
         </th>
