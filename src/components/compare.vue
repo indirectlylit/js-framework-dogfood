@@ -4,17 +4,22 @@
       <tr>
         <th
           v-on:click="reset()"
-          :class="{'disabled': isUnsorted}">
+          class="corner"
+          :class="{'is-unsorted': isUnsorted}">
           ↓ {{ isUnsorted ? 'sort' : 'reset' }} →
         </th>
         <th
-          class="metrics"
-          v-on:click="sortRows(metric.id)"
           v-for="metric in sortedMetrics"
-          transition="shuffle"
-          :title="metric.notes"
-          :class="{'disabled': rowsort === metric.id}">
-          {{metric.display}}
+          class="top-header"
+          transition="shuffle">
+          <div
+            class="top-header"
+            v-on:click="sortRows(metric.id)"
+            :title="metric.notes"
+            :class="{'selected': rowsort === metric.id}"
+            >
+            {{metric.display}}
+          </div>
         </th>
       </tr>
     </thead>
@@ -27,7 +32,7 @@
           scope="row"
           class="row-label"
           v-on:click="sortCols(framework.id)"
-          :class="{'disabled': colsort === framework.id}"
+          :class="{'selected': colsort === framework.id}"
           >
           {{framework.display}}
         </th>
@@ -142,10 +147,10 @@
     },
     methods: {
       sortRows: function(id) {
-        this.rowsort = id;
+        this.rowsort = this.rowsort === id ? null : id;
       },
       sortCols: function(id) {
-        this.colsort = id;
+        this.colsort = this.colsort === id ? null : id;
       },
       reset: function() {
         this.rowsort = null;
@@ -172,6 +177,20 @@
   th {
     font-size: smaller;
     cursor: pointer;
+    color: grey;
+    position: relative;
+  }
+
+  th.top-header {
+    height: 120px;
+  }
+
+  div.top-header {
+    transform: rotate(-60deg);
+    display: block;
+    position: absolute;
+    text-align: left;
+    width: 100px;
   }
 
   .row-label {
@@ -179,13 +198,21 @@
     padding-right: 5px;
   }
 
-  .disabled {
-    color: #ADADAD;
-    cursor: auto;
+  .selected {
+    color: black;
+    text-decoration: underline;
   }
 
   .shuffle-move {
     transition: transform .5s cubic-bezier(.55,0,.1,1);
+  }
+
+  .corner {
+    text-align: right;
+  }
+
+  .is-unsorted {
+    cursor: auto;
   }
 
 

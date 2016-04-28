@@ -33,8 +33,8 @@
 <style scoped>
 
   .block {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     display: flex;
   }
 
