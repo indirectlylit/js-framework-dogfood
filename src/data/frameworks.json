@@ -7,10 +7,10 @@
       "composability":  2,
       "performance":    2,
       "documentation":  4,
-      "tooling":        4,
+      "tooling":        3,
       "size":           3,
-      "community":      3,
-      "extensibility":  3
+      "community":      3.2,
+      "flexibility":    3
     }
   },
   {
@@ -21,10 +21,10 @@
       "composability":  3,
       "performance":    3,
       "documentation":  2,
-      "tooling":        3,
+      "tooling":        2.5,
       "size":           5,
       "community":      2,
-      "extensibility":  3
+      "flexibility":    3
     }
   },
   {
@@ -35,10 +35,10 @@
       "composability":  5,
       "performance":    4,
       "documentation":  4,
-      "tooling":        5,
+      "tooling":        3.5,
       "size":           2,
       "community":      4,
-      "extensibility":  2
+      "flexibility":    2
     }
   },
   {
@@ -47,12 +47,12 @@
     "scores": {
       "simplicity":     1,
       "composability":  4,
-      "performance":    4,
+      "performance":    4.5,
       "documentation":  3,
       "tooling":        5,
-      "size":           2,
+      "size":           3,
       "community":      5,
-      "extensibility":  3
+      "flexibility":    3
     }
   },
   {
@@ -66,7 +66,7 @@
       "tooling":        4,
       "size":           4,
       "community":      3,
-      "extensibility":  4
+      "flexibility":    4
     }
   }
 ]

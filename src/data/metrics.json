@@ -35,8 +35,8 @@
     "notes": "How widely is it used, talked about, and supported..."
   },
   {
-    "id": "extensibility",
-    "display": "Extensibility",
-    "notes": "Usable with new languages, plug-ins, etc"
+    "id": "flexibility",
+    "display": "Flexibility",
+    "notes": "Extensibility, lack of lock-in..."
   }
 ]
