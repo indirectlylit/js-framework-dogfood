@@ -61,40 +61,72 @@
       },
       sortedMetrics: function() {
         var vm = this;
-        if (vm.colsort === null) {
-          return vm.metrics;
-        }
         var temp = vm.metrics.slice(0); // copy
-        temp.sort(function(metric_a, metric_b) {
-          var a = vm.frameworkDict[vm.colsort].scores[metric_a.id];
-          var b = vm.frameworkDict[vm.colsort].scores[metric_b.id];
-          if (a > b) {
-            return -1;
-          }
-          if (a < b) {
-            return 1;
-          }
-          return 0;
-        });
+        if (vm.colsort) {
+          temp.sort(function(metric_a, metric_b) {
+            var a = vm.frameworkDict[vm.colsort].scores[metric_a.id];
+            var b = vm.frameworkDict[vm.colsort].scores[metric_b.id];
+            if (a > b) {
+              return -1;
+            }
+            if (a < b) {
+              return 1;
+            }
+            return 0;
+          });
+        }
+        else {
+          temp.sort(function(metric_a, metric_b) {
+            var a = vm.frameworks.reduce(function(accumulator, framework){
+              return accumulator + framework.scores[metric_a.id];
+            }, 0);
+            var b = vm.frameworks.reduce(function(accumulator, framework){
+              return accumulator + framework.scores[metric_b.id];
+            }, 0);
+            if (a > b) {
+              return -1;
+            }
+            if (a < b) {
+              return 1;
+            }
+            return 0;
+          });
+        }
         return temp;
       },
       sortedFrameworks: function() {
         var vm = this;
-        if (vm.rowsort === null) {
-          return vm.frameworks;
-        }
         var temp = vm.frameworks.slice(0); // copy
-        temp.sort(function(framework_a, framework_b) {
-          var a = framework_a.scores[vm.rowsort];
-          var b = framework_b.scores[vm.rowsort];
-          if (a > b) {
-            return -1;
-          }
-          if (a < b) {
-            return 1;
-          }
-          return 0;
-        });
+        if (vm.rowsort) {
+          temp.sort(function(framework_a, framework_b) {
+            var a = framework_a.scores[vm.rowsort];
+            var b = framework_b.scores[vm.rowsort];
+            if (a > b) {
+              return -1;
+            }
+            if (a < b) {
+              return 1;
+            }
+            return 0;
+          });
+        }
+        else {
+          temp.sort(function(framework_a, framework_b) {
+            var a = vm.metrics.reduce(function(accumulator, metric) {
+              return accumulator + framework_a.scores[metric.id];
+            }, 0);
+            var b = vm.metrics.reduce(function(accumulator, metric) {
+              return accumulator + framework_b.scores[metric.id];
+            }, 0);
+            if (a > b) {
+              return -1;
+            }
+            if (a < b) {
+              return 1;
+            }
+            return 0;
+          });
+        }
         return temp;
       },
     },
