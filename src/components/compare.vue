@@ -11,6 +11,7 @@
           class="metrics"
           v-on:click="sortRows(metric.id)"
           v-for="metric in sortedMetrics"
+          transition="shuffle"
           :title="metric.notes"
           :class="{'disabled': rowsort === metric.id}">
           {{metric.display}}
@@ -18,7 +19,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="framework in sortedFrameworks">
+      <tr
+        v-for="framework in sortedFrameworks"
+        transition="shuffle"
+        >
         <th
           scope="row"
           class="row-label"
@@ -27,7 +31,9 @@
           >
           {{framework.display}}
         </th>
-        <td v-for="metric in sortedMetrics">
+        <td
+          v-for="metric in sortedMetrics"
+          transition="shuffle">
           <block
             :score="framework.scores[metric.id]"
             :notes="framework.notes[metric.id]">
@@ -40,6 +46,9 @@
 
 
 <script>
+
+  var Vue = require('vue');
+  Vue.use(require('vue-animated-list'));
 
   module.exports = {
     components: {
@@ -174,5 +183,10 @@
     color: #ADADAD;
     cursor: auto;
   }
+
+  .shuffle-move {
+    transition: transform .5s cubic-bezier(.55,0,.1,1);
+  }
+
 
 </style>
