@@ -2,18 +2,31 @@
   <table>
     <thead>
       <tr>
-        <th></th>
-        <th colspan="{{metrics.length}}">Metrics</th>
-      </tr>
-      <tr>
-        <th></th>
-        <th class="metrics" v-for="metric in metrics">{{metric.display}}</th>
+        <th
+          v-on:click="reset()"
+          :class="{'disabled': isUnsorted}">
+          ↓ {{ isUnsorted ? 'sort' : 'reset' }} →
+        </th>
+        <th
+          class="metrics"
+          v-on:click="sortRows(metric.id)"
+          v-for="metric in sortedMetrics"
+          :class="{'disabled': rowsort === metric.id}">
+          {{metric.display}}
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="framework in frameworks">
-        <th scope="row" class="row-label">{{framework.display}}</th>
-        <td v-for="metric in metrics">
+      <tr v-for="framework in sortedFrameworks">
+        <th
+          scope="row"
+          class="row-label"
+          v-on:click="sortCols(framework.id)"
+          :class="{'disabled': colsort === framework.id}"
+          >
+          {{framework.display}}
+        </th>
+        <td v-for="metric in sortedMetrics">
           <block
             :score="framework.scores[metric.id]"
             :notes="framework.notes[metric.id]">
@@ -28,13 +41,81 @@
 <script>
 
   module.exports = {
+    components: {
+      block: require('./block'),
+    },
     props: [
       'metrics',
       'frameworks'
     ],
-    components: {
-      block: require('./block'),
+    data: function() {
+      return {
+        rowsort: null,
+        colsort: null,
+        frameworkDict: {},
+      }
     },
+    computed: {
+      isUnsorted: function() {
+        return !(this.rowsort || this.colsort);
+      },
+      sortedMetrics: function() {
+        var vm = this;
+        if (vm.colsort === null) {
+          return vm.metrics;
+        }
+        var temp = vm.metrics.slice(0); // copy
+        temp.sort(function(metric_a, metric_b) {
+          var a = vm.frameworkDict[vm.colsort].scores[metric_a.id];
+          var b = vm.frameworkDict[vm.colsort].scores[metric_b.id];
+          if (a > b) {
+            return -1;
+          }
+          if (a < b) {
+            return 1;
+          }
+          return 0;
+        });
+        return temp;
+      },
+      sortedFrameworks: function() {
+        var vm = this;
+        if (vm.rowsort === null) {
+          return vm.frameworks;
+        }
+        var temp = vm.frameworks.slice(0); // copy
+        temp.sort(function(framework_a, framework_b) {
+          var a = framework_a.scores[vm.rowsort];
+          var b = framework_b.scores[vm.rowsort];
+          if (a > b) {
+            return -1;
+          }
+          if (a < b) {
+            return 1;
+          }
+          return 0;
+        });
+        return temp;
+      },
+    },
+    methods: {
+      sortRows: function(id) {
+        this.rowsort = id;
+      },
+      sortCols: function(id) {
+        this.colsort = id;
+      },
+      reset: function() {
+        this.rowsort = null;
+        this.colsort = null;
+      }
+    },
+    created: function() {
+      var vm = this;
+      vm.frameworks.forEach(function(framework) {
+        vm.frameworkDict[framework.id] = framework;
+      });
+    }
   };
 
 </script>
@@ -46,13 +127,19 @@
     margin: auto;
   }
 
+  th {
+    font-size: smaller;
+    cursor: pointer;
+  }
+
   .row-label {
     text-align: right;
     padding-right: 5px;
   }
 
-  .metrics {
-    font-size: smaller;
+  .disabled {
+    color: #ADADAD;
+    cursor: auto;
   }
 
 </style>
