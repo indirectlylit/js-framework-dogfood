@@ -3,7 +3,7 @@
     <thead>
       <tr>
         <th
-          v-on:click="reset()"
+          @click="reset()"
           class="corner label"
           :class="{'is-unsorted': isUnsorted}">
           ↓ {{ isUnsorted ? 'sort' : 'reset' }} →
@@ -14,7 +14,7 @@
           transition="shuffle">
           <div
             class="top-header label"
-            v-on:click="sortRows(metric.id)"
+            @click="sortRows(metric.id)"
             :title="metric.notes"
             :class="{'selected': rowsort === metric.id}"
             >
@@ -31,7 +31,7 @@
         <th
           scope="row"
           class="row-label"
-          v-on:click="sortCols(framework.id)"
+          @click="sortCols(framework.id)"
           :class="{'selected': colsort === framework.id}"
           >
           <span class="label">{{framework.display}}</span>
@@ -41,8 +41,8 @@
           transition="shuffle">
           <block
             :score="framework.scores[metric.id]"
-            :notes="framework.notes[metric.id]"
-            v-on:click="clickBox">
+            :selected="isSelected(framework.id, metric.id)"
+            @click="clickBox(framework.id, metric.id)">
           </block>
         </td>
       </tr>
@@ -61,8 +61,9 @@
       block: require('./block'),
     },
     props: [
+      'frameworks',
       'metrics',
-      'frameworks'
+      'selected',
     ],
     data: function() {
       return {
@@ -156,7 +157,14 @@
       reset: function() {
         this.rowsort = null;
         this.colsort = null;
-      }
+      },
+      clickBox: function(framework_id, metric_id) {
+        this.$emit('clickbox', framework_id, metric_id);
+      },
+      isSelected: function(framework_id, metric_id) {
+        var selected = this.selected.framework_id == framework_id && this.selected.metric_id == metric_id;
+        return selected;
+      },
     },
     created: function() {
       var vm = this;
@@ -170,10 +178,6 @@
 
 
 <style scoped>
-
-  table {
-    margin: auto;
-  }
 
   th {
     font-size: smaller;
@@ -200,6 +204,7 @@
   .row-label {
     text-align: right;
     padding-right: 5px;
+    min-width: 100px;
   }
 
   .selected {
@@ -217,6 +222,10 @@
 
   .is-unsorted {
     cursor: auto;
+  }
+
+  .selectedblock {
+    border: 10px solid white;
   }
 
 

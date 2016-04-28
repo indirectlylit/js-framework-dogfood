@@ -1,11 +1,24 @@
 <template>
-  <div id="app">
-    <h3>Comparison of front-end JS frameworks</h3>
-    <p>An unscientific overview for Kolibri</p>
-    <compare
-      :metrics="metrics"
-      :frameworks="frameworks">
-    </compare>
+  <div>
+    <div class="header">
+      <h3>Comparison of front-end JS frameworks</h3>
+      <p>An unscientific overview for Kolibri</p>
+    </div>
+    <div class="wrapper">
+      <compare
+        :metrics="metrics"
+        :frameworks="frameworks"
+        :selected="selected"
+        @clickbox="select">
+      </compare>
+      <detailview
+        class="details"
+        :metrics="metrics"
+        :frameworks="frameworks"
+        :selected="selected"
+        >
+      </detailview>
+    <div>
   </div>
 </template>
 
@@ -15,12 +28,25 @@
   module.exports = {
     components: {
       compare: require('./components/compare'),
+      detailview: require('./components/detailview'),
     },
     data: function() {
       return {
         frameworks: null,
-        metrics: null
+        metrics: null,
+        selected: {metric_id: null, framework_id: null}
       };
+    },
+    methods: {
+      select: function(framework_id, metric_id) {
+        if (this.selected.metric_id === metric_id && this.selected.framework_id === framework_id) {
+          this.selected.metric_id = null;
+          this.selected.framework_id = null;
+        } else {
+          this.selected.metric_id = metric_id;
+          this.selected.framework_id = framework_id;
+        }
+      }
     },
     created: function () {
       // creates a context for dynamic loading
@@ -66,12 +92,24 @@
   }
 
   a {
-    color: #42b983;
+    color: #AF8402;
     text-decoration: none;
   }
 
-  h3, p {
+  .header h3, .header p {
     text-align: center;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    min-width: 850px
+  }
+
+  .details {
+    padding-left: 50px;
+    min-width: 250px;
+    margin-top: 100px;
   }
 
 </style>

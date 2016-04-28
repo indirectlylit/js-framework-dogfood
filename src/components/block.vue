@@ -1,6 +1,7 @@
 <template>
-  <div class="block" v-bind:style="scaledColor">
-    <div>{{{notes}}}</div>
+  <div class="block"
+    :style="styles"
+    :class="{'selected':selected}">
   </div>
 </template>
 
@@ -16,14 +17,16 @@
   module.exports = {
     props: [
       'score',
-      'notes'
+      'selected'
     ],
     computed: {
-      scaledColor: function() {
+      styles: function() {
+        var width = this.selected ? '5px' : '0';
         return {
+          border: width + " solid white",
           backgroundColor: color(this.score)
         };
-      }
+      },
     },
   };
 
@@ -36,6 +39,8 @@
     width: 60px;
     height: 60px;
     display: flex;
+    cursor: pointer;
+    transition: border 0.05s;
   }
 
 </style>
