@@ -4,7 +4,7 @@
       <tr>
         <th
           v-on:click="reset()"
-          class="corner"
+          class="corner label"
           :class="{'is-unsorted': isUnsorted}">
           ↓ {{ isUnsorted ? 'sort' : 'reset' }} →
         </th>
@@ -13,7 +13,7 @@
           class="top-header"
           transition="shuffle">
           <div
-            class="top-header"
+            class="top-header label"
             v-on:click="sortRows(metric.id)"
             :title="metric.notes"
             :class="{'selected': rowsort === metric.id}"
@@ -34,14 +34,15 @@
           v-on:click="sortCols(framework.id)"
           :class="{'selected': colsort === framework.id}"
           >
-          {{framework.display}}
+          <span class="label">{{framework.display}}</span>
         </th>
         <td
           v-for="metric in sortedMetrics"
           transition="shuffle">
           <block
             :score="framework.scores[metric.id]"
-            :notes="framework.notes[metric.id]">
+            :notes="framework.notes[metric.id]"
+            v-on:click="clickBox">
           </block>
         </td>
       </tr>
@@ -176,7 +177,6 @@
 
   th {
     font-size: smaller;
-    cursor: pointer;
     color: grey;
     position: relative;
   }
@@ -191,6 +191,10 @@
     position: absolute;
     text-align: left;
     width: 100px;
+  }
+
+  .label {
+    cursor: pointer;
   }
 
   .row-label {
