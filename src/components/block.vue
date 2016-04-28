@@ -1,5 +1,7 @@
 <template>
-  <div class="block" v-bind:style="scaledColor"></div>
+  <div class="block" v-bind:style="scaledColor">
+    <div>{{{notes}}}</div>
+  </div>
 </template>
 
 
@@ -12,11 +14,14 @@
     .range(["brown", "steelblue"]);
 
   module.exports = {
-    props: ['metric'],
+    props: [
+      'score',
+      'notes'
+    ],
     computed: {
       scaledColor: function() {
         return {
-          backgroundColor: color(this.metric.score)
+          backgroundColor: color(this.score)
         };
       }
     },
@@ -30,6 +35,7 @@
   .block {
     width: 100px;
     height: 100px;
+    display: flex;
   }
 
 </style>

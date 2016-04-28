@@ -1,0 +1,42 @@
+[
+  {
+    "id": "simplicity",
+    "display": "Simplicity",
+    "notes": "Small/intuitive/accessible API, minimal boilerplate..."
+  },
+  {
+    "id": "composability",
+    "display": "Composability",
+    "notes": "Support for building deeply-nested, large-scale apps..."
+  },
+  {
+    "id": "performance",
+    "display": "Performance",
+    "notes": "Out-of-the-box performance with minimal tweaking..."
+  },
+  {
+    "id": "documentation",
+    "display": "Documentation",
+    "notes": "Official and unofficial docs/videos/support..."
+  },
+  {
+    "id": "tooling",
+    "display": "Tooling",
+    "notes": "Source maps, webpack integration, IDE integration..."
+  },
+  {
+    "id": "size",
+    "display": "File Size",
+    "notes": "Base download size with essential dependencies..."
+  },
+  {
+    "id": "community",
+    "display": "Community",
+    "notes": "How widely is it used, talked about, and supported..."
+  },
+  {
+    "id": "extensibility",
+    "display": "Extensibility",
+    "notes": "Usable with new languages, plug-ins, etc"
+  }
+]

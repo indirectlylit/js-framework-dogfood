@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bbmn",
+    "display": "BB+Mn",
+    "scores": {
+      "simplicity": 0,
+      "composability": 1,
+      "performance": 2,
+      "documentation": 3,
+      "tooling": 4,
+      "size": 5,
+      "community": 0,
+      "ecosystem": 0
+    }
+  },
+  {
+    "id": "riot",
+    "display": "Riot",
+    "scores": {
+      "simplicity": 0,
+      "composability": 0,
+      "performance": 0,
+      "documentation": 0,
+      "tooling": 0,
+      "size": 0,
+      "community": 0,
+      "ecosystem": 0
+    }
+  },
+  {
+    "id": "angular2",
+    "display": "Angular2",
+    "scores": {
+      "simplicity": 0,
+      "composability": 0,
+      "performance": 0,
+      "documentation": 0,
+      "tooling": 0,
+      "size": 0,
+      "community": 0,
+      "ecosystem": 0
+    }
+  },
+  {
+    "id": "react",
+    "display": "React",
+    "scores": {
+      "simplicity": 0,
+      "composability": 0,
+      "performance": 0,
+      "documentation": 0,
+      "tooling": 0,
+      "size": 0,
+      "community": 0,
+      "ecosystem": 0
+    }
+  },
+  {
+    "id": "vue",
+    "display": "Vue.js",
+    "scores": {
+      "simplicity": 0,
+      "composability": 0,
+      "performance": 0,
+      "documentation": 0,
+      "tooling": 0,
+      "size": 0,
+      "community": 0,
+      "ecosystem": 0
+    }
+  }
+]
