@@ -4,7 +4,7 @@
     "display": "BB+Mn",
     "scores": {
       "simplicity":     2,
-      "composability":  2,
+      "composability":  3,
       "performance":    2,
       "documentation":  4,
       "tooling":        3.5,
