@@ -77,7 +77,6 @@
 <style>
 
   html {
-    height: 100%;
     box-sizing: border-box;
   }
 
@@ -108,8 +107,12 @@
 
   .details {
     padding-left: 50px;
-    min-width: 250px;
-    margin-top: 100px;
+    padding-right: 20px;
+    width: 350px;
+    margin-top: 50px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
 </style>
