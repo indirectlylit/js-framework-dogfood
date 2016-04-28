@@ -4,10 +4,10 @@
     "display": "BB+Mn",
     "scores": {
       "simplicity":     2,
-      "composability":  2,
+      "composability":  3,
       "performance":    2,
       "documentation":  4,
-      "tooling":        3,
+      "tooling":        3.5,
       "size":           3,
       "community":      3.2,
       "flexibility":    3
@@ -35,7 +35,7 @@
       "composability":  5,
       "performance":    4,
       "documentation":  4,
-      "tooling":        3.5,
+      "tooling":        3,
       "size":           2,
       "community":      4,
       "flexibility":    2
