@@ -18,7 +18,7 @@
     "display": "Riot",
     "scores": {
       "simplicity":     5,
-      "composability":  3,
+      "composability":  3.5,
       "performance":    3,
       "documentation":  2,
       "tooling":        2.5,
