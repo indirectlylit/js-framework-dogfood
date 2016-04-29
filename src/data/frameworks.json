@@ -7,9 +7,9 @@
       "composability":  3,
       "performance":    2,
       "documentation":  4,
-      "tooling":        3.5,
+      "tooling":        3,
       "size":           3,
-      "community":      3.2,
+      "community":      2.5,
       "flexibility":    3
     }
   },
@@ -23,36 +23,36 @@
       "documentation":  2,
       "tooling":        2.5,
       "size":           5,
-      "community":      2,
-      "flexibility":    3
+      "community":      2.5,
+      "flexibility":    4.1
     }
   },
   {
     "id": "angular2",
     "display": "Angular2",
     "scores": {
-      "simplicity":     2,
+      "simplicity":     2.9,
       "composability":  5,
       "performance":    4,
-      "documentation":  4,
-      "tooling":        3,
-      "size":           2,
-      "community":      4,
-      "flexibility":    2
+      "documentation":  4.5,
+      "tooling":        3.9,
+      "size":           1.5,
+      "community":      3,
+      "flexibility":    3
     }
   },
   {
     "id": "react",
     "display": "React",
     "scores": {
-      "simplicity":     1,
+      "simplicity":     1.3,
       "composability":  4,
       "performance":    4.5,
       "documentation":  3,
       "tooling":        5,
       "size":           3,
       "community":      5,
-      "flexibility":    3
+      "flexibility":    2
     }
   },
   {
@@ -63,9 +63,9 @@
       "composability":  5,
       "performance":    5,
       "documentation":  4,
-      "tooling":        4,
+      "tooling":        4.2,
       "size":           4,
-      "community":      3,
+      "community":      3.5,
       "flexibility":    4
     }
   }

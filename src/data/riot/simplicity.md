@@ -1,10 +1,6 @@
-Mike
--------
 
-It's nice that behavior, html, and styles are presented in one self-contained unit.
-Of the frameworks I reviewed it's the simplest to use and also reason about.
-One potential cost is that if we want to do something "against" the framework
-it will not be so easy.
+Riot uses a very simple and elegant nested tag structure and syntax that feels very familiar to basic HTML, CSS, and Javascript. It provides the bare essentials and leaves the rest up to the developer.
 
-Riot is firmly a framework, while Backbone+Marionette in contrast is closer the 
-library end of the spectrum.
+In order to achieve this simplicity, it sometimes resorts to somewhat inconsistent behaviors, and it has some serious [edge case bugs](https://github.com/riot/riot/issues/1020) in its implementation.
+
+It's a superb framework for its size, but may not be able to handle a larger-scale application.
