@@ -4,7 +4,9 @@
       <h3>
         {{frameworkName}} {{metricName}}
       </h3>
-      {{{ notes }}}
+      <div v-on:click="clicked">
+        {{{ notes }}}
+      </div>
     </div>
     <div v-else>
       <div class="help">← click the blocks for details</div>
@@ -44,6 +46,16 @@
           return framework.id === vm.selected.framework_id;
         }).notes[vm.selected.metric_id];
         return notes
+      }
+    },
+    methods: {
+      clicked: function(event) {
+        // open links in a new tab
+        if (event.target.href) {
+          var win = window.open(event.target.href, '_blank');
+          win.focus();
+          event.preventDefault();
+        }
       }
     }
   };
