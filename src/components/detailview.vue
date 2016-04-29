@@ -4,9 +4,10 @@
       <h3>
         {{frameworkName}} {{metricName}}
       </h3>
-      <div>
-        {{{ notes }}}
-      </div>
+      {{{ notes }}}
+    </div>
+    <div v-else>
+      <div class="help">← click the blocks for details</div>
     </div>
   </div>
 </template>
@@ -54,6 +55,14 @@
 
   h3 {
     position: relative;
+  }
+
+  .help {
+    font-size: smaller;
+    font-weight: bold;
+    color: grey;
+    position: relative;
+    top: 350px;
   }
 
 </style>
