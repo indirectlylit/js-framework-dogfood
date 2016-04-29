@@ -5,7 +5,7 @@
     "scores": {
       "simplicity":     2,
       "composability":  3,
-      "performance":    2,
+      "performance":    2.5,
       "documentation":  4,
       "tooling":        3,
       "size":           3,
