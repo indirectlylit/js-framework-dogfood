@@ -1,6 +1,10 @@
 # Comparison of front-end JS frameworks
 
-Eating my own dog food: written using [vue.js](https://vuejs.org) and initialized using [`vue-cli`](https://github.com/vuejs/vue-cli).
+Put together to help choose a front-end framework for [Learning Equality](https://learningequality.org/)'s new [Kolibri](https://github.com/learningequality/kolibri) application.
+
+View it at [https://compare-frameworks.firebaseio.com](https://compare-frameworks.firebaseio.com).
+
+Eating my own dog food: written using [vue.js](https://vuejs.org).
 
 ## Build Setup
 
@@ -11,8 +15,6 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Data Files
 
