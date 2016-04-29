@@ -2,7 +2,7 @@
 
 Put together to help choose a front-end framework for [Learning Equality](https://learningequality.org/)'s new [Kolibri](https://github.com/learningequality/kolibri) application.
 
-View it at [https://compare-frameworks.firebaseio.com](https://compare-frameworks.firebaseio.com).
+View it at [https://compare-frameworks.firebaseapp.com/](https://compare-frameworks.firebaseio.com).
 
 Eating my own dog food: written using [vue.js](https://vuejs.org).
 
