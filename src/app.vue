@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <h3>Comparison of front-end JS frameworks</h3>
+      <h3>Comparison of front-end JS frameworks (2016)</h3>
       <p>An unscientific overview for <a href="https://learningequality.org/kolibri/" target="_blank">Kolibri</a>. (<a href="https://github.com/indirectlylit/js-framework-dogfood" target="_blank">view on GitHub</a>)</p>
     </div>
     <div class="wrapper">
